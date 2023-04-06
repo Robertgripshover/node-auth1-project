@@ -52,5 +52,5 @@ module.exports = {
   restricted,
   checkUsernameFree,
   checkUsernameExists,
-  checkPasswordLength
+  checkPasswordLength,
 }
