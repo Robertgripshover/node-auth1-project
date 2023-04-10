@@ -3,6 +3,8 @@
 
 const router = require('express').Router()
 
+const bcryptjs = require('bcryptjs')
+const User = require('../users/users-model')
 
 const {
   checkPasswordLength,
@@ -34,7 +36,15 @@ const {
  */
 
   router.post('/register', checkPasswordLength, checkUsernameFree, (req, res, next) => {
-    res.json('register')
+    const { username, password } = req.body
+
+    const hash = bcryptjs.hashSync(password, 8) //<< the password needs hashed, thiis is how you do it
+
+    User.add({ username, password: hash })
+      .then(savedUser => {
+        res.status(201).json(savedUser)
+      })
+      .catch(next)
   })
 
 /**
