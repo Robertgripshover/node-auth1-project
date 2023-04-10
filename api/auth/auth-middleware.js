@@ -12,8 +12,18 @@ const User = require('../users/users-model')
 
 
 function restricted(req, res, next) {
-  next()
-}
+  if (req.session.user) {
+    next()
+  } else {
+    next({ status: 401, message: 'You shall not pass!' })
+  }
+} //<< everytime the user with a cookie makes a request we 
+//have to check to make sure there is an active session
+//this little bit of code above achives that
+
+
+
+
 
 /*
   If the username in req.body already exists in the database

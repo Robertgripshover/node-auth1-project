@@ -68,6 +68,9 @@ const {
     if (bcryptjs.compareSync(password, req.user.password)) {
       // make it so the cookie is set on the client
       //make it so server stores a ssession with session id corresponding to this user
+      req.session.user = req.user //<< that is what this is doing
+
+      res.json({ message: `Welcome ${req.user.username}`})
     } else {
       next({ status: 401, message: 'Invalid credentials'})
     }
