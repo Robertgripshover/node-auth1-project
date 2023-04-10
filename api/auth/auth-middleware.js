@@ -23,8 +23,6 @@ function restricted(req, res, next) {
 
 
 
-
-
 /*
   If the username in req.body already exists in the database
 
@@ -86,7 +84,6 @@ function checkPasswordLength(req, res, next) {
   }
 }
 
-// Don't forget to add these to the `exports` object so they can be required in other modules
 
 module.exports = {
   restricted,

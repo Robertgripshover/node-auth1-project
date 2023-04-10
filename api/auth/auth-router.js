@@ -93,7 +93,17 @@ const {
  */
 
   router.get('/logout', (req, res, next) => {
-    res.json('logout')
+    if (req.session.user) {
+      req.session.destroy(err => {
+        if (err) {
+          next() //<< if there is some error destryoing the session this will run
+        } else {
+          res.json({ message: 'logged out' }) //<< if the session is destroyed successfully then this will run
+        }
+      }) //<< if there is a session it will destroy it
+    } else {
+      res.json({ message: 'no session'})
+    }
   })
  
 // Don't forget to add the router to the `exports` object so it can be required in other modules
