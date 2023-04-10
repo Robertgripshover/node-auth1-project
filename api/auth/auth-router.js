@@ -33,8 +33,8 @@ const {
   }
  */
 
-  router.post('/register', checkPasswordLength, checkUsernameFree (req, res, next) => {
-    
+  router.post('/register', checkPasswordLength, checkUsernameFree, (req, res, next) => {
+    res.json('register')
   })
 
 /**

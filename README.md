@@ -12,6 +12,16 @@ Your assignment page on Canvas should contain instructions for submitting this p
 
 ### Task 2: Minimum Viable Product
 
+ALSO NEEDED TO DOWNLOAD:
+
+`npm i connect-session-knex`
+
+`npm i express-session`
+
+`npm i bcryptjs`
+
+`npm i connect-session-knex`
+
 #### 2A - Database Access Functions
 
 Write the following user access functions inside `api/users/users-model.js`:
